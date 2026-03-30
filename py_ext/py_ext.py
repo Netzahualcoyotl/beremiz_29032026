@@ -51,6 +51,7 @@ class PythonLibrary(POULibrary):
         runtimefile = open(runtimefile_path, 'w')
         runtimefile.write(pyext_python_lib_code)
         runtimefile.close()
+
         return ((["py_ext"], [(Gen_Pythonfile_path, IECCFLAGS)], True), "",
                 ("runtime_00_pyext.py", open(runtimefile_path, "rb")))
 

@@ -58,7 +58,7 @@ class Generic_target(Builder):
                     cflags.append(CFLAGS)
 
         oldmd5 = self.md5key
-        self.md5key = hashlib.md5(wholesrcdata).hexdigest()
+        self.md5key = hashlib.md5(wholesrcdata.encode('utf-8')).hexdigest()
 
         # Store new PLC filename based on md5 key
         f = open(self._GetMD5FileName(), "w")

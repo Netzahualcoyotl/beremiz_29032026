@@ -53,6 +53,15 @@ _BaseParamsParser = GenerateParserFromXSDstring("""<?xml version="1.0" encoding=
               <xsd:attribute name="Name" type="xsd:string" use="optional" default="__unnamed__"/>
               <xsd:attribute name="IEC_Channel" type="xsd:integer" use="required"/>
               <xsd:attribute name="Enabled" type="xsd:boolean" use="optional" default="true"/>
+              <xsd:attribute name="RxPDO" type="xsd:string" use="optional" default="None"/>
+              <xsd:attribute name="TxPDO" type="xsd:string" use="optional" default="None"/>
+              <xsd:attribute name="DC_Enable" type="xsd:boolean" use="optional" default="false"/>
+              <xsd:attribute name="DC_Desc" type="xsd:string" use="optional" default="None"/>
+              <xsd:attribute name="DC_Assign_Activate" type="xsd:string" use="optional" default="None"/>
+              <xsd:attribute name="DC_Sync0_Cycle_Time" type="xsd:string" use="optional" default="None"/>
+              <xsd:attribute name="DC_Sync0_Shift_Time" type="xsd:string" use="optional" default="None"/>
+              <xsd:attribute name="DC_Sync1_Cycle_Time" type="xsd:string" use="optional" default="None"/>
+              <xsd:attribute name="DC_Sync1_Shift_Time" type="xsd:string" use="optional" default="None"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:schema>""")
@@ -361,6 +370,9 @@ class ConfigTreeNode(object):
                     buildpath,
                     # filter locations that start with current IEC location
                     [loc for loc in locations if loc["LOC"][0:depth] == new_location])
+            filtered_locs = [loc for loc in locations if loc["LOC"][0:depth] == new_location]
+#            for loc in filtered_locs:
+#                #print("  ", loc)
             # stack the result
             LocationCFilesAndCFLAGS += _LocationCFilesAndCFLAGS
             LDFLAGS += _LDFLAGS
@@ -539,12 +551,10 @@ class ConfigTreeNode(object):
         if not self._View and not onlyopened and self.EditorType is not None:
             app_frame = self.GetCTRoot().AppFrame
             self._View = self.EditorType(app_frame.TabsOpened, self, app_frame)
-
         return self._View
 
     def _OpenView(self, name=None, onlyopened=False):
         view = self.GetView(onlyopened)
-
         if view is not None:
             if name is None:
                 name = self.CTNFullName()

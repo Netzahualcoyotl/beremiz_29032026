@@ -272,6 +272,9 @@ def SendThreadProc():
                 break
 
 def AddPathToSVGHMIServers(path, factory, *args, **kwargs):
+    # Asegúrate de que path sea bytes
+    if isinstance(path, str):
+        path = path.encode('utf-8')
     for k,v in svghmi_servers.items():
         svghmi_root, svghmi_listener, path_list = v
         svghmi_root.putChild(path, factory(*args, **kwargs))

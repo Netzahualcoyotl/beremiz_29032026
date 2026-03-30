@@ -364,7 +364,7 @@ class ConfTreeNodeEditor(EditorPanel):
                 CTR_AppFrame.RefreshPageTitles()
 
         dialog.Destroy()
-
+    
     def GenerateSizerElements(self, sizer, elements, path, clean=True):
         if clean:
             sizer.Clear(True)
@@ -375,7 +375,8 @@ class ConfTreeNodeEditor(EditorPanel):
             else:
                 element_path = element_infos["name"]
 
-            doc = element_infos["doc"]
+#            doc = element_infos["doc"]
+            doc = element_infos.get("doc", [{"documentation": ""}])
             if doc:
                 doc_content = "\n".join([entry["documentation"].strip() for entry in doc])
                 sample = doc_content.split("\n")[0][:50]

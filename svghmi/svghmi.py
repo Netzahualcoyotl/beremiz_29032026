@@ -737,6 +737,8 @@ def _runtime_{location}_svghmi_start():
     path_list.append("{path}")
 
     for url_path, file_path in _{location}_static_files:
+        if isinstance(url_path, str):
+            url_path = url_path.encode('utf-8')
         svghmi_root.putChild(url_path, File(file_path))
         path_list.append(url_path)
 

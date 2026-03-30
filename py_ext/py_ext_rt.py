@@ -54,7 +54,8 @@ def _CSV_str_Load(fname):
             dialect = csv.Sniffer().sniff(csvfile.read(1024))
             csvfile.seek(0)
             reader = csv.reader(csvfile, dialect)
-            first_row = reader.next()
+            #first_row = reader.next()
+            first_row = next(reader)
             data.append(first_row)
             col_headers = OrderedDict([(name, index+1) for index, name 
                                         in enumerate(first_row[1:])])

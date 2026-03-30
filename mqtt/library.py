@@ -1,4 +1,4 @@
-# mqtt/client.py
+# mqtt/library.py
 
 from __future__ import absolute_import
 

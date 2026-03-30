@@ -11,7 +11,7 @@ constantly==23.10.4
 contourpy==1.3.2
 cryptography==45.0.5
 cycler==0.12.1
-erpc @ git+https://git@github.com/beremiz/erpc.git@d8fff72b15274b5f2a8f7895d9bc5c91eef584ec#subdirectory=erpc_python
+erpc @ git+https://github.com/beremiz/erpc.git@d8fff72b15274b5f2a8f7895d9bc5c91eef584ec#subdirectory=erpc_python
 fonttools==4.59.0
 hyperlink==21.0.0
 idna==3.10
@@ -21,8 +21,8 @@ kiwisolver==1.4.8
 lxml==6.0.0
 matplotlib==3.10.3
 msgpack==1.1.1
-Nevow @ git+https://git@github.com/beremiz/nevow-py3.git@fe14898bc3e8aaa2ff982b6fb07c76c3b0bec77d
-numpy==2.3.2
+Nevow @ git+https://github.com/beremiz/nevow-py3.git@fe14898bc3e8aaa2ff982b6fb07c76c3b0bec77d
+numpy==1.26.4
 packaging==25.0
 pillow==11.3.0
 pycountry==24.6.1
@@ -34,7 +34,7 @@ pytz==2025.2
 setuptools==80.9.0
 six==1.17.0
 sortedcontainers==2.4.0
-sslpsk @ git+https://git@github.com/beremiz/sslpsk.git@9cb31986629b382f7427eec29ddc168ad21c7d7c
+sslpsk @ git+https://github.com/beremiz/sslpsk.git@9cb31986629b382f7427eec29ddc168ad21c7d7c
 Twisted==25.5.0
 txaio==25.6.1
 typing_extensions==4.14.1

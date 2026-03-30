@@ -1323,7 +1323,6 @@ def generateGetattrMethod(factory, class_definition, classinfos):
 
     return getattrMethod
 
-
 def generateSetattrMethod(factory, class_definition, classinfos):
     attributes = dict([(attr["name"], attr) for attr in classinfos["attributes"] if attr["use"] != "prohibited"])
     optional_attributes = dict([(attr["name"], True) for attr in classinfos["attributes"] if attr["use"] == "optional"])

@@ -100,6 +100,9 @@ class WxGladeHMI(PythonFileCTNMixin):
             wxgfile = open(wxgfile_path, 'r')
             wxgtree = minidom.parse(wxgfile)
             wxgfile.close()
+            
+            real_nodes = [n for n in wxgtree.childNodes if n.nodeType == n.ELEMENT_NODE]
+            print("Nodos reales en wxgfile:", len(real_nodes))
 
             for node in wxgtree.childNodes[1].childNodes:
                 if node.nodeType == wxgtree.ELEMENT_NODE:
@@ -125,7 +128,8 @@ class WxGladeHMI(PythonFileCTNMixin):
                 ['-o', wxghmipyfile_path, '-g', 'python', wxgfile_path], wait=True)
 
             hmipyfile = open(hmipyfile_path, 'r')
-            define_hmi = hmipyfile.read().decode('utf-8')
+#            define_hmi = hmipyfile.read().decode('utf-8')
+            define_hmi = hmipyfile.read()
             hmipyfile.close()
 
         else:
